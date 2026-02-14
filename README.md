@@ -2,18 +2,44 @@
 
 MCP server designed to help AI agents clean up dead code in Flutter/Dart projects. It provides tools to identify unused elements, imports, fields, and local variables.
 
-## Key Features
+## Why use this?
 
-- **Identify Unused Code**: Automatically detect unused imports, fields, local variables, and other elements.
-- **Agent-Ready Output**: Tools return structured JSON data with file paths, lines, and columns, making it easy for AI agents to precisely locate and remove dead code.
-- **Safe**: The MCP server *identifies* code to remove but does *not* delete it automatically, leaving the final decision and execution to the agent or user.
+This tool is particularly useful for **AI-assisted coding workflows**. AI agents often generate unused, test, duplicate, or "hallucinated" code (e.g., extra imports, unused helper functions). Cleaning this up manually is tedious, and leaving it in consumes valuable **tokens** and **context window** space. Furthermore, by removing dead code, the AI agent can stay more **focused**, decreasing the likelihood of choosing the wrong function or context, which can lead to bugs. This MCP server empowers agents to self-correct and keep the codebase lean, saving costs and improving model performance.
 
 ## Installation
 
-1. Clone this repository.
-2. Run `dart pub get` to install dependencies.
+Run the following command to activate the `flutter_cleanup_mcp` [global tool](https://dart.dev/tools/pub/cmd/pub-global):
 
-## Configuration
+```bash
+dart pub global activate flutter_cleanup_mcp
+```
+
+## Tool Configuration
+
+Add the MCP server to your AI coding assistant's configuration.
+
+### Cursor
+
+Add to your project's `.cursor/mcp.json` or your global `~/.cursor/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "flutter_cleanup": {
+      "command": "flutter_cleanup_mcp",
+      "args": []
+    }
+  }
+}
+```
+
+### Claude Code
+
+You can run the following command to add it:
+
+```bash
+claude mcp add --transport stdio flutter_cleanup_mcp -- flutter_cleanup_mcp
+```
 
 ### VS Code (with MCP Extension)
 
@@ -23,14 +49,18 @@ Add the following to your MCP settings file (e.g., `~/.vscode/mcp.json`):
 {
   "servers": {
     "flutter_cleanup": {
-      "command": "dart",
-      "args": [
-        "/absolute/path/to/flutter_cleanup_mcp/bin/flutter_cleanup_mcp.dart"
-      ]
+      "command": "flutter_cleanup_mcp",
+      "args": []
     }
   }
 }
 ```
+
+## Key Features
+
+- **Identify Unused Code**: Automatically detect unused imports, fields, local variables, and other elements.
+- **Agent-Ready Output**: Tools return structured JSON data with file paths, lines, and columns, making it easy for AI agents to precisely locate and remove dead code.
+- **Safe**: The MCP server *identifies* code to remove but does *not* delete it automatically, leaving the final decision and execution to the agent or user.
 
 ## Available Tools
 

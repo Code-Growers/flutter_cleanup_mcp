@@ -1,7 +1,6 @@
 name: flutter_cleanup_mcp
 description: MCP server for cleaning up unused code in Flutter/Dart projects.
 version: 0.0.1
-publish_to: none
 repository: https://github.com/Code-Growers/flutter_cleanup_mcp
 issue_tracker: https://github.com/Code-Growers/flutter_cleanup_mcp/issues
 homepage: https://codegrowers.com
