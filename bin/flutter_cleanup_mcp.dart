@@ -41,7 +41,7 @@ void main(List<String> arguments) async {
 
   final implementation = Implementation(
     name: 'flutter-cleanup-mcp',
-    version: '0.1.0',
+    version: '0.0.2',
   );
 
   final server = McpServer(implementation);
