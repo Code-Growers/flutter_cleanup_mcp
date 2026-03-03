@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  TestHooks.init();
   runApp(const MyApp());
 }
 

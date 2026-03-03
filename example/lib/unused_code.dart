@@ -5,10 +5,12 @@ void main() {
   print('Hello');
 }
 
-void _unusedFunction() { // Unused function
+void _unusedFunction() {
+  // Unused function
   print('I am unused');
 }
 
-class _UnusedClass { // Unused class
+class _UnusedClass {
+  // Unused class
   String _unusedField = 'unused'; // Unused field
 }

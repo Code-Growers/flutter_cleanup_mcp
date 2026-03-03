@@ -1,3 +1,7 @@
+## 0.0.3
+
+- Bump libraries. Mainly `mcp_dart` to 2.
+
 ## 0.0.2
 
 - Update setup steps.
